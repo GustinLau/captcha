@@ -1,4 +1,4 @@
-package cn.walink;
+package cn.walink.code;
 
 import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletRequest;
@@ -11,7 +11,7 @@ import java.security.MessageDigest;
 import java.util.*;
 
 /**
- * Created by Gustin on 2016/4/21.
+ * Created by Gustin Lau on 2016/4/21.
  */
 public class Captcha {
 
@@ -136,11 +136,11 @@ public class Captcha {
             return false;
         }
         // session 过期
-        if (System.currentTimeMillis() - (Long) secode.get("verify_time") > expire) {
+        if (System.currentTimeMillis() - (Long) secode.get("captcha_time") > expire) {
             request.getSession().setAttribute(key, null);
             return false;
         }
-        if (authcode(code.toUpperCase()).equals(secode.get("verify_code").toString())) {
+        if (authcode(code.toUpperCase()).equals(secode.get("captcha_code").toString())) {
             if (reset)
                 request.getSession().setAttribute(key, null);
             return true;
