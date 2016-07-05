@@ -16,7 +16,7 @@ import java.util.*;
 public class Captcha {
 
     private final String FILE_SEPARATOR = File.separator;
-    private final String VERIFY_PATH = this.getClass().getClassLoader().getResource("").getPath() + "verify" + FILE_SEPARATOR;
+    private final String CAPTCHA_PATH = this.getClass().getClassLoader().getResource("").getPath() + "captcha" + FILE_SEPARATOR;
 
     private Random random = new Random();  //随机器
 
@@ -162,7 +162,7 @@ public class Captcha {
 
     /**
      * 输出验证码并把验证码的值保存的session中
-     * 验证码保存到session的格式为： HashMap 'verify_code' => '验证码值', 'verify_time' => '验证码创建时间';
+     * 验证码保存到session的格式为： HashMap 'captcha_code' => '验证码值', 'captcha_time' => '验证码创建时间';
      *
      * @param id 标记
      * @throws Exception
@@ -200,7 +200,7 @@ public class Captcha {
         Color color = new Color(random.nextInt(150) + 1, random.nextInt(150) + 1, random.nextInt(150) + 1);
         g.setColor(color);
         // 验证码使用随机字体
-        String ttfPath = VERIFY_PATH + (useZh ? "zhttfs" : "ttfs") + FILE_SEPARATOR;
+        String ttfPath = CAPTCHA_PATH + (useZh ? "zhttfs" : "ttfs") + FILE_SEPARATOR;
         String fontttf = this.fontttf;
         if (fontttf.equals("") || fontttf == null) {
             File file = new File(ttfPath);
@@ -248,8 +248,8 @@ public class Captcha {
         String key = authcode(seKey) + id;
         String code = authcode(String.copyValueOf(chars).toUpperCase());
         Map secode = new HashMap();
-        secode.put("verify_code", code); // 把校验码保存到session
-        secode.put("verify_time", System.currentTimeMillis());  // 验证码创建时间
+        secode.put("captcha_code", code); // 把校验码保存到session
+        secode.put("captcha_time", System.currentTimeMillis());  // 验证码创建时间
         request.getSession().setAttribute(key, secode);
         response.setHeader("Cache-Control", "private, max-age=0, no-store, no-cache, must-revalidate");
         response.setHeader("Pragma", "no-cache");
@@ -331,7 +331,7 @@ public class Captcha {
      * 注：如果验证码输出图片比较大，将占用比较多的系统资源
      */
     private void writeBackground(Graphics2D g) throws IOException {
-        String bgspath = VERIFY_PATH + "bgs" + FILE_SEPARATOR;
+        String bgspath = CAPTCHA_PATH + "bgs" + FILE_SEPARATOR;
         File file = new File(bgspath);
         File[] tempList = file.listFiles();
         ArrayList<File> bgs = new ArrayList();
