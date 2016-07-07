@@ -7,6 +7,8 @@
 ![效果图](https://raw.githubusercontent.com/GustinLau/captcha/master/captcha.png)
 
 ## 使用
+* 在resources目录下添加captcha文件夹
+
 * Spring中配置Bean  
 ```xml
 <bean id="captcha" class="cn.walink.code.Captcha">
