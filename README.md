@@ -8,7 +8,7 @@
 
 ## 使用
 
-1. Spring中配置Bean
+1. Spring中配置Bean  
 ```xml
 <bean id="captcha" class="cn.walink.code.Captcha">
         <property name="fontttf" value="0.ttf"></property>
@@ -31,7 +31,7 @@
 ``bg`` 背景颜色  
 ``reset`` 验证成功后是否重置
 
-2. Servlet
+2. Servlet  
 ```java
 public class CaptchaServlet extends HttpServlet {
 
@@ -51,7 +51,7 @@ public class CaptchaServlet extends HttpServlet {
 }
 ```
 
-3. web.xml配置
+3. web.xml配置  
 ```xml
 <servlet>
         <servlet-name>captchaServlet</servlet-name>
@@ -64,10 +64,10 @@ public class CaptchaServlet extends HttpServlet {
 </servlet-mapping>
 ```
 
-4. 访问
+4. 访问  
 > http://localhost:8080/captcha.png
 
-5. 验证
+5. 验证  
 ```java
 @Controller
 @RequestMapping("/captcha")
