@@ -4,7 +4,7 @@
 感谢[ThinkPHP](https://github.com/top-think/thinkphp)提供验证码生成思路  
 
 ## 验证码效果图
-
+![效果图](https://raw.githubusercontent.com/GustinLau/captcha/master/captcha.png)
 
 ## 使用
 1. Spring中配置Bean
