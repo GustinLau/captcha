@@ -7,8 +7,8 @@
 ![效果图](https://raw.githubusercontent.com/GustinLau/captcha/master/captcha.png)
 
 ## 使用
-1. Spring中配置Bean
 
+1. Spring中配置Bean
 ```xml
 <bean id="captcha" class="cn.walink.code.Captcha">
         <property name="fontttf" value="0.ttf"></property>
@@ -50,6 +50,7 @@ public class CaptchaServlet extends HttpServlet {
     }
 }
 ```
+
 3. web.xml配置
 ```xml
 <servlet>
@@ -67,7 +68,6 @@ public class CaptchaServlet extends HttpServlet {
 > http://localhost:8080/captcha.png
 
 5. 验证
-
 ```java
 @Controller
 @RequestMapping("/captcha")
