@@ -21,7 +21,7 @@
 ``zhSet`` 中文验证码字符串(useZh为Ture时有效)  
 ``useImgBg`` 使用背景图片  
 ``fontSize`` 验证码字体大小(px)  
-``useCurve`` 是否画混淆曲线
+``useCurve`` 是否画混淆曲线  
 ``useNoise`` 是否添加噪点  
 ``imageH`` 验证码图片高度(默认根据字体大小调整)  
 ``imageW`` 验证码图片宽度(默认根据字体大小调整)  
