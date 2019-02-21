@@ -88,5 +88,5 @@ public class CaptchaController {
 }
 ```
 
-#License
+# License
 MIT
